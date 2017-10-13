@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="xyaFwSI1VZa80BtZHe7okdwZ9tuTs-lYAAuDt1bsCxM" />
+  
+  <title>升级Mac的python</title>
+  <meta name="author" content="gaoryrt">
+  <meta name="description" content="digital diary of gaoryrt.">
+  
+  
+  <meta property="og:title" content="升级Mac的python"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Blog Name Goes Here"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Blog Name Goes Here" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;a description for this result is not available due to his vacuum heart.
+      </div>
+    </div>
+    <div class="container">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        升级Mac的python
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2015-09-30T13:17:31.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2015-09-30
+</time>
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/categories/Geek-Talks-·-奇客怪谈/">Geek Talks · 奇客怪谈</a>
+
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/howto/">howto</a>·<a href="/tags/abc/">abc</a>·<a href="/tags/mac/">mac</a>
+
+
+    </div>
+    <hr>
+    <div class="picture-container">
+      
+    </div>
+    <p>在前一篇 <a href="http://gaoryrt.github.io/2015/09/27/StartingPython/" target="_blank" rel="external">开始Python</a> 当中提到了安装新版本Python的方法<br>但是在shell当中使用<code>python</code>命令的时候还是依旧使用的老版本Python。<br>今天下午解决这个问题花了好长时间。<br><a id="more"></a> </p>
+<hr>
+<h1 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h1><ol>
+<li>找的Python教程都是基于3.X版本的，跟2.X并不兼容  </li>
+<li>shell当中使用<code>python</code>命令显示的Python版本依旧是2.7.10  </li>
+<li>准备的编辑器是<code>Atom</code>或者<code>Sublime Text</code>，编译就交给shell了</li>
+</ol>
+<p>看了其他人的Python建议之后还是决定先把Vim当作普通编辑器，不要深入把它变成Python IDE了  </p>
+<hr>
+<h1 id="尝试解决"><a href="#尝试解决" class="headerlink" title="尝试解决"></a>尝试解决</h1><p>直接安装的话尝试了brew安装和<a href="https://www.python.org/downloads/" target="_blank" rel="external">直接下载</a>安装 </p>
+<pre><code>brew install python //brew安装Python
+</code></pre><p>两种都是直接安装在<code>/Library/Frameworks/Python.framework/Versions/3.5</code>中<br>并没有<a href="http://jingyan.baidu.com/article/27fa7326e4809646f8271fc7.html" target="_blank" rel="external">帮助</a>我建立link，建立可执行文件<br>好像直接覆盖的话会有很多遗留问题，Sublime和Xcode都要用到Python2.7脚本<br>在Stack Overflow上面找了很久，试过的都不管用，主要是因为Mac OSX 10.11 El Captain的rootless这个新特性<br>初衷是为了用户的安全呗  不把root权限交给用户  搞得我现在sudo出来都报错告诉我<br><code>Operation not permitted</code><br>这下我连复制Python版本目录到一起都不行了，更别说更改路径了<br>我就尝试着在shell配置中添加alias直接调用IDLE中新版Python<br>这个应该是能够成功的，但是需要调用的<code>python3.5</code>是一个隐藏文件，我在shell当中也只是<code>tab</code>自动补全的时候才添加的<br>之后的尝试也以找不到目标文件告终  </p>
+<hr>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>然后居然是万能的知乎上找到了答案<br>是一个叫做<code>pythonbrew</code>的shell插件<br>能够下载切换全局局部的特定Python版本，简单操作易切换<br>安装配置参照👉<a href="https://github.com/utahta/pythonbrew" target="_blank" rel="external">pythonbrew</a>👈<br>安装配置成功后下载了3.4和2.7两个版本的Python并切换了过去<br>太方便了好么！！！</p>
+<hr>
+<h1 id="看图"><a href="#看图" class="headerlink" title="看图"></a>看图</h1><p><img src="http://ww2.sinaimg.cn/large/a243ad6cjw1ewktr4gy20j20jd0fswfv.jpg" alt="image"><br><strong>👆没有改的时候，原版Python👆</strong><br><img src="http://ww1.sinaimg.cn/large/a243ad6cjw1ewktr2tvj3j20jd0fs41a.jpg" alt="image"><br><strong>👆使用pythonbrew转换之后👆</strong><br><img src="http://ww4.sinaimg.cn/large/a243ad6cjw1ewktr0wym7j20jd0fs411.jpg" alt="image"><br><strong>👆可用的版本，我只下载了两个👆</strong><br><img src="http://ww4.sinaimg.cn/large/a243ad6cjw1ewktqy8cjjj20jd0fs401.jpg" alt="image"><br><strong>👆换回来之后👆</strong>  </p>
+<hr>
+<p>以上</p>
+
+
+  </article>
+  </script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = 'http://gaoryrt.com/2015/09-30-upgrade-pyhton-on-mac/index.html';
+this.page.identifier = undefined;
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//gaoryrt.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot container">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © Gaoryrt 2015-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+var disqus_shortname = 'gaoryrt';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>

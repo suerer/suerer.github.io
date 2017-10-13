@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="xyaFwSI1VZa80BtZHe7okdwZ9tuTs-lYAAuDt1bsCxM" />
+  
+  <title>「翻译」 Swift 内嵌类型</title>
+  <meta name="author" content="gaoryrt">
+  <meta name="description" content="digital diary of gaoryrt.">
+  
+  
+  <meta property="og:title" content="「翻译」 Swift 内嵌类型"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Blog Name Goes Here"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Blog Name Goes Here" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;a description for this result is not available due to his vacuum heart.
+      </div>
+    </div>
+    <div class="container">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        「翻译」 Swift 内嵌类型
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2016-01-30T09:57:35.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2016-01-30
+</time>
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/categories/疑似机器人/">疑似机器人</a>
+
+
+
+
+
+    </div>
+    <hr>
+    <div class="picture-container">
+      
+    </div>
+    <p>这是对 swift 2.2 中 <a href="https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/NestedTypes.html#//apple_ref/doc/uid/TP40014097-CH23-ID242" target="_blank" rel="external">内嵌类型</a> 一节的翻译<br>第二篇了，这篇少。</p>
+<h1 id="内嵌类型"><a href="#内嵌类型" class="headerlink" title="内嵌类型"></a>内嵌类型</h1><p>枚举通常用于实现特定类或结构体的功能。类似的，它也可以在更加复杂的类型环境中方便的定义通用类和结构体。为实现这种功能，Swift 允许你定义<em>内嵌类型</em>，借此在支持类型的定义中嵌套枚举、类、或结构体。</p>
+<p>若要在一种类型中嵌套另一种类型，在其支持类型的大括号内定义即可。可以根据需求多级嵌套数个类型。</p>
+<h1 id="内嵌类型的实例"><a href="#内嵌类型的实例" class="headerlink" title="内嵌类型的实例"></a>内嵌类型的实例</h1><p>下方的例子定义了一个名为<code>BlackJackCard</code>的结构体，模拟了 Blackjack 游戏中的扑克牌。<code>BlackjackCard</code>结构体包含两个嵌套的枚举类型<code>Suit</code>和<code>Rank</code>。</p>
+<p>在 Blackjack 游戏中，Ace 可以表示1或11两个值，这通过<code>Rank</code>枚举中嵌套的结构体<code>Values</code>决定：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BlackjackCard</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 嵌套的 Suit 枚举</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Suit</span>: <span class="title">Character</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">Spades</span> = <span class="string">"♠"</span>, <span class="type">Hearts</span> = <span class="string">"♡"</span>, <span class="type">Diamonds</span> = <span class="string">"♢"</span>, <span class="type">Clubs</span> = <span class="string">"♣"</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 嵌套的 Rank 枚举</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">Rank</span>: <span class="title">Int</span> </span>&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="type">Two</span> = <span class="number">2</span>, <span class="type">Three</span>, <span class="type">Four</span>, <span class="type">Five</span>, <span class="type">Six</span>, <span class="type">Seven</span>, <span class="type">Eight</span>, <span class="type">Nine</span>, <span class="type">Ten</span></span><br><span class="line">        <span class="keyword">case</span> <span class="type">Jack</span>, <span class="type">Queen</span>, <span class="type">King</span>, <span class="type">Ace</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Values</span> </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> first: <span class="type">Int</span>, second: <span class="type">Int</span>?</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> values: <span class="type">Values</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .<span class="type">Ace</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">1</span>, second: <span class="number">11</span>)</span><br><span class="line">            <span class="keyword">case</span> .<span class="type">Jack</span>, .<span class="type">Queen</span>, .<span class="type">King</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="number">10</span>, second: <span class="literal">nil</span>)</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="type">Values</span>(first: <span class="keyword">self</span>.rawValue, second: <span class="literal">nil</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// BlackjackCard 的属性和方法</span></span><br><span class="line">    <span class="keyword">let</span> rank: <span class="type">Rank</span>, suit: <span class="type">Suit</span></span><br><span class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> output = <span class="string">"suit is <span class="subst">\(suit.rawValue)</span>,"</span></span><br><span class="line">        output += <span class="string">" value is <span class="subst">\(rank.values.first)</span>"</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> second = rank.values.second &#123;</span><br><span class="line">          output += <span class="string">" or <span class="subst">\(second)</span>"</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Suit</code>枚举用于描述扑克牌的四种花色，并用原始的<code>Character</code>来代表各自的花色。</p>
+<p><code>Rank</code>枚举用于描述扑克牌的十三种点数，并用原始的<code>Int</code>来代表各自的点数值（这里的<code>Int</code>并不会用于 J、Q、K、Ace 的表示）。</p>
+<p>如上所述，<code>Rank</code>枚举中定义了一个嵌套结构体<code>Values</code>。这个结构体描述了大多牌只有一个值，而 Ace 可以有两个值这一事实。<code>Values</code>结构体定义了两个属性：</p>
+<ul>
+<li><code>Int</code>类型的<code>first</code></li>
+<li><code>Int?</code>类型的<code>second</code>，也称为『可选<code>Int</code>』</li>
+</ul>
+<p><code>Rank</code> 还定义了一个计算属性<code>values</code>，用于返回<code>Values</code>结构体的实例。这个计算属性会根据牌的点数，用适当的值初始化新的<code>Values</code>实例。对于<code>Jack</code>、<code>Queen</code>、<code>King</code>、和<code>Ace</code>使用特殊的值。而对于数值的牌，则使用它本身的<code>Int</code>值。</p>
+<p><code>BlackjackCard</code>结构体本身有两个属性——<code>rank</code>和<code>suit</code>。并定义了一个名为<code>description</code>的计算属性，用<code>rank</code>和<code>suit</code>储存的值构建对扑克牌花色和值的描述。<code>description</code>属性使用可选绑定来检查是否有第二个值要描述，若有，则添加对第二个值的描述。</p>
+<p>由于<code>BlackjackCard</code>是一个没有自定义初始化器的结构体，如<a href="">逐个成员初始化器的结构类型</a>所述，它有一个隐式的成员初始化器。你可以使用这个舒适化其去初始化新的常量<code>theAceOfSpades</code>：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> theAceOfSpades = <span class="type">BlackjackCard</span>(rank: .<span class="type">Ace</span>, suit: .<span class="type">Spades</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"theAceOfSpades: <span class="subst">\(theAceOfSpades.description)</span>"</span>)</span><br><span class="line"><span class="comment">// 输出 "theAceOfSpades: suit is ♠, value is 1 or 11"</span></span><br></pre></td></tr></table></figure>
+<p>尽管<code>Rank</code>和<code>Suit</code>被嵌套在<code>BlackjackCard</code>中，但其类型仍可从上下文中推断出来，因此，该实例的初始化器可以单独通过成员名称（<code>.Ace</code>和<code>.Spades</code>）引用枚举类型。在上面的例子中，<code>description</code>属性正确的反馈了黑桃 Ace 拥有1或11两个值。</p>
+<h1 id="引用内嵌类型"><a href="#引用内嵌类型" class="headerlink" title="引用内嵌类型"></a>引用内嵌类型</h1><p>要在定义外部使用内嵌类型，只需在其前缀加上内嵌了它的类的类型名即可：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> heartsSymbol = <span class="type">BlackjackCard</span>.<span class="type">Suit</span>.<span class="type">Hearts</span>.rawValue</span><br><span class="line"><span class="comment">// heartsSymbol 值为 "♡”</span></span><br></pre></td></tr></table></figure>
+<p>像上面的例子可以使<code>Suit</code>、<code>Rank</code>和<code>Values</code>的名字尽可能的短，因为他们的名字由定义时的上下文自然限定。</p>
+
+
+  </article>
+  </script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = 'http://gaoryrt.com/2016/01-30-内嵌类型/index.html';
+this.page.identifier = undefined;
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//gaoryrt.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot container">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © Gaoryrt 2015-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+var disqus_shortname = 'gaoryrt';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>

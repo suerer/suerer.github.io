@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="xyaFwSI1VZa80BtZHe7okdwZ9tuTs-lYAAuDt1bsCxM" />
+  
+  <title>开始Python3抓取数据</title>
+  <meta name="author" content="gaoryrt">
+  <meta name="description" content="digital diary of gaoryrt.">
+  
+  
+  <meta property="og:title" content="开始Python3抓取数据"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="Blog Name Goes Here"/>
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="Blog Name Goes Here" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;a description for this result is not available due to his vacuum heart.
+      </div>
+    </div>
+    <div class="container">
+      
+
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        开始Python3抓取数据
+    </h1>
+  
+
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2015-10-04T03:39:01.000Z">
+<svg class="i-calendar" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"></path>
+  </svg>
+  &nbsp;
+  2015-10-04
+</time>
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/categories/硬悟学蛇/">硬悟学蛇</a>
+
+
+
+
+    
+    &nbsp;
+    <svg class="i-tag" viewBox="0 0 32 32" width="14" height="14" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"></circle>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"></path>
+    </svg>
+    &nbsp;
+    <a href="/tags/python/">python</a>·<a href="/tags/abc/">abc</a>
+
+
+    </div>
+    <hr>
+    <div class="picture-container">
+      
+    </div>
+    <p>暂时没有看<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658427513eef3d9dd9f7c48599116735806328e81000" target="_blank" rel="external">廖雪峰的python3教程</a>，而是直接看了这个👉<a href="http://www.2cto.com/shouce/Pythonbbf/index.html" target="_blank" rel="external">笨办法学Python</a><br>笨办法学python - Learn Python The Hard Way 里面写的基本上是初级语法<br>看了一会儿发现这是针对无基础人士写的<strong>python2</strong>教程<br>看完之后就一个感觉：  </p>
+<blockquote>
+<p>python语法还是蛮简单的，但是swift还要简单一些  </p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>终极目标是写一个python脚本，用于抓取热点微博，并定时转发<br>看了一下<a href="http://open.weibo.com/wiki/微博API" target="_blank" rel="external">新浪微博api</a>，为了完成该目标就需要  </p>
+<ol>
+<li><a href="http://open.weibo.com/wiki/微博API" target="_blank" rel="external">转发一条微博信息</a></li>
+<li><a href="http://open.weibo.com/wiki/2/statuses/update" target="_blank" rel="external">发布一条微博信息</a></li>
+<li><a href="http://open.weibo.com/wiki/2/statuses/public_timeline" target="_blank" rel="external">获取最新的公共微博</a></li>
+</ol>
+<p>在深入的话还需要微博登录</p>
+<hr>
+<h1 id="step-by-step"><a href="#step-by-step" class="headerlink" title="step by step"></a>step by step</h1><p>api看不懂就看看demo<br>demo看不懂至少我看懂了post包里面需要什么数据<br>那么就直接开始尝试建立post或者get<br>还是不行，那么开始python抓取网页数据吧————这也是抓取热点微博的一个方法  </p>
+<hr>
+<h2 id="简单抓取网页数据"><a href="#简单抓取网页数据" class="headerlink" title="简单抓取网页数据"></a>简单抓取网页数据</h2><p>注意使用的是python3版本<br>不要用错了人家老版本的了 必须的urllib库变了：  </p>
+<blockquote>
+<p>python 3.x中urllib库和urilib2库合并成了urllib库<br>其中urllib2.urlopen()变成了urllib.request.urlopen()<br>urllib2.Request()变成了urllib.request.Request() </p>
+</blockquote>
+<p>参考了这两个网页<a href="http://blog.csdn.net/mr_tank_/article/details/14104103" target="_blank" rel="external">Python3 urllib GET方式获取数据</a>和<a href="http://wenku.baidu.com/link?url=d9Sxcd98Io4X8IYxx12J_YLBk7DPS2CFAlq-oUwzh8SByj90HMv3fTDCi4wgYpXjTR_luZDu7VzwbdHQ6k7aDHvl9bv2UyVmmqn9t2TX8R_" target="_blank" rel="external">python3.3 抓取网页数据</a>  </p>
+<p>代码如下<br><img src="http://ww1.sinaimg.cn/large/a243ad6cjw1ewn711zq9lj20cg0crgo5.jpg" alt="image"><br>我直接查询了一下我的微博的主页<br>本来写的是百度的，东西太多了看不过来。。。。。<br>网页的html数据就被储存在z_data当中，re库能够通过html的语法进行查询<br>第一个查询标题，第二个循环了查询链接<br>回显如下<br><img src="http://ww3.sinaimg.cn/large/a243ad6cjw1ewn7109tpqj20qj06qdik.jpg" alt="image"></p>
+<hr>
+<h1 id="更新2015-10-04-23-06-34"><a href="#更新2015-10-04-23-06-34" class="headerlink" title="更新2015-10-04 23:06:34"></a>更新2015-10-04 23:06:34</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>是把网页中sidebar目录里的所有网页连接给装到一个 dic 字典当中<br>或者装到txt 文件当中，这样以后可以用脚本使用该 txt 文档<br>然后把文档里的所有东西都给拖下来<br>相当于是通过给出来的目录，下载整个网站<br>通过脚本可以吧<code>.html</code>文档简单的变成 markdown 文档</p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p>此次操作当中最重要的弄懂 python3 的正则表达式和目录操作<br>相关网页：  </p>
+<blockquote>
+<p><a href="http://python3.h.baike.com/article-362233.html" target="_blank" rel="external">re模块 正则表达式</a><br><a href="http://blog.csdn.net/jcjc918/article/details/9366011" target="_blank" rel="external">Python 3语法小记（四）字典 dictionary</a>  </p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span><span class="string"> urllib.request</span></span><br><span class="line"><span class="keyword">import</span><span class="string"> re</span></span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">'name'</span>:<span class="string">'urls'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">url</span> = <span class="string">"the url u want"</span></span><br><span class="line"></span><br><span class="line">data = urllib.request.urlopen(<span class="built_in">url</span>).read().decode(<span class="string">"UTF-8"</span>)</span><br><span class="line"></span><br><span class="line">urllib.request.urlopen(<span class="built_in">url</span>).close()</span><br><span class="line"></span><br><span class="line">links = re.compile(<span class="string">'000"&gt;(.+?)&lt;/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> urls <span class="keyword">in</span> links.findall(data):</span><br><span class="line">    <span class="keyword">if</span> <span class="string">"&lt;a"</span> <span class="keyword">in</span> <span class="attribute">urls</span>:</span><br><span class="line">        pass</span><br><span class="line">    <span class="attribute">else</span>:</span><br><span class="line">        urls.replace(<span class="string">'/'</span>,<span class="string">'_'</span>)</span><br><span class="line">        dic[<span class="string">'%s'</span>%urls] = <span class="string">'-'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> names <span class="keyword">in</span> dic.keys():</span><br><span class="line"></span><br><span class="line">    temp = <span class="string">'href="(.+?)"&gt;'</span>+names</span><br><span class="line">    urlses = re.compile(temp)</span><br><span class="line">    <span class="attribute">try</span>:</span><br><span class="line">        urlname = urlses.findall(data)[<span class="number">0</span>]</span><br><span class="line">    <span class="attribute">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    dic[names] = urlname</span><br><span class="line">    </span><br><span class="line">print(dic)</span><br></pre></td></tr></table></figure>
+<p>关键在于两个正则表达式：<br><code>temp = &#39;href=&quot;(.+?)&quot;&gt;&#39;+names</code><br><code>links = re.compile(&#39;000&quot;&gt;(.+?)&lt;/&#39;)</code><br>这两个的构造是通过网页源代码来的，我想找的代码段是<code>(.+?)</code>里的内容<br>本来只用一个正则就行了的，但是整个网页当中有两段目录<br>于是 dic 显示一个名字<code>names</code>对应了两个<code>url</code><br>所以有了第二段 url 用于约束，也就是定位到 sidebar 当中  </p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>看图<br><img src="http://ww1.sinaimg.cn/large/a243ad6cjw1ewpily64i4j20zk0m8b29.jpg" alt="image"><br>👆成功了哟👆<br>接下来的就是把<code>/wiki/</code>开头的相对路径添加成为含有网址的绝对路径<br><del>然后存为 txt  拿给其他的脚本使用了</del><br>更新：用<code>pickle</code>储存，见下方更新</p>
+<hr>
+<h1 id="更新2015-10-06-20-00-10"><a href="#更新2015-10-06-20-00-10" class="headerlink" title="更新2015-10-06 20:00:10"></a>更新2015-10-06 20:00:10</h1><h2 id="添加成绝对路径"><a href="#添加成绝对路径" class="headerlink" title="添加成绝对路径"></a>添加成绝对路径</h2><p>还是以<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" target="_blank" rel="external">廖雪峰的 python3 教程</a>为例<br>我们在上面已经得到了这样的url 字符串：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/wiki/<span class="number">0014316089557264</span>a6b348958f449949df42a6d3a2e542c000</span><br></pre></td></tr></table></figure></p>
+<p>这也是我们两行正则表达式的查找标准之一<br>在这里把url 改成绝对路径：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urlname = "<span class="link">http://www.liaoxuefeng.com"+urlses.findall(data)</span>[<span class="string">0</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="存档以便以后使用"><a href="#存档以便以后使用" class="headerlink" title="存档以便以后使用"></a>存档以便以后使用</h2><p>这里使用<code>pickle</code><br>参考网页：<a href="http://blog.csdn.net/mr_tank_/article/details/14224141" target="_blank" rel="external">Python3 pickle序列化</a><br>使用方法如下：<br><strong>👇写入👇</strong><br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">"the_name_you_want.pickle"</span>,<span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(dic,f)</span><br></pre></td></tr></table></figure></p>
+<p><strong>👇读出👇</strong><br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'the_name_you_want.pickle'</span>,<span class="string">'rb'</span>) <span class="keyword">as</span> f:  </span><br><span class="line">    dic=pickle.<span class="built_in">load</span>(f)</span><br></pre></td></tr></table></figure></p>
+<p><strong>这里的<code>dic</code>是一个字典</strong></p>
+<h2 id="用一个函数来生成-html-文档"><a href="#用一个函数来生成-html-文档" class="headerlink" title="用一个函数来生成 html 文档"></a>用一个函数来生成 html 文档</h2><p>输入一个<code>{names:url}</code>储存的字典，效果是把储存的所有网页都下载下来<br>一下就写好了，代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">store_the_page</span><span class="params">(dic)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> names <span class="keyword">in</span> dic:</span><br><span class="line">        url = dic[names]</span><br><span class="line">        data=urllib.request.urlopen(url).read()</span><br><span class="line">        urllib.request.urlopen(url).close()</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            fp = open(<span class="string">"%s.html"</span>%names,<span class="string">"wb"</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        fp.write(data)</span><br><span class="line">        fp.close()</span><br><span class="line">        print(<span class="string">"%s.html\t写入完成"</span>%names)</span><br></pre></td></tr></table></figure>
+<p>两个<code>.py</code>怎么互相调用呢？  </p>
+<blockquote>
+<p>假如我有一个 <code>b.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello world"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>在<code>a.py</code>里就该这样调用：<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import b</span><br><span class="line"> blah</span><br><span class="line"> blah</span><br><span class="line"> blah</span><br><span class="line"><span class="function"><span class="keyword">method</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>也就是说，只用 import 就行了，因为在同一文件夹里，直接写<code>import b</code>  </p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>看图：<br><img src="http://ww2.sinaimg.cn/large/a243ad6cjw1ewrpfh0mbsj20ff0lnjy0.jpg" alt="image"><br>看着文件一个一个生成还是蛮开心的<br>最后的错误是因为文件名中带有<code>/</code>这个特殊的符号<br>我们可以通过替换<code>names</code>字符串中的<code>/</code>来解决<br>或者是用<code>try</code> <code>except</code>来忽略它<br>看看 finder：<br><img src="http://ww1.sinaimg.cn/large/a243ad6cjw1ewrpk4u85lj211i0opdp5.jpg" alt="image"> </p>
+<hr>
+<p>至此就完成了查找目录-下载目录-下载网站的过程</p>
+<p>以上</p>
+
+
+  </article>
+  </script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
+
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = 'http://gaoryrt.com/2015/10-04-开始python3抓取数据/index.html';
+this.page.identifier = undefined;
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//gaoryrt.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
+
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot container">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"></path>
+        </svg>
+        </a>
+        © Gaoryrt 2015-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
+
+// disqus scripts
+
+var disqus_shortname = 'gaoryrt';
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('body')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
+</html>
